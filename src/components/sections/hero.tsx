@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Facebook, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/content/portfolio";
+import { XIcon } from "@/components/shared/icons";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -29,9 +30,15 @@ const itemVariants = {
     },
 };
 
+import { Spotlight } from "@/components/ui/spotlight";
+
 export function HeroSection() {
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+            <Spotlight
+                className="-top-40 left-0 md:left-60 md:-top-20"
+                fill="hsl(var(--primary))"
+            />
             {/* Animated background orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
                 <motion.div
@@ -76,6 +83,18 @@ export function HeroSection() {
                             </span>
                             {personalInfo.availability}
                         </span>
+                    </motion.div>
+
+                    {/* Profile Photo */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl"
+                    >
+                        <img
+                            src="/images/projects/profileimage.png"
+                            alt={personalInfo.name}
+                            className="w-full h-full object-cover"
+                        />
                     </motion.div>
 
                     {/* Main heading */}
@@ -141,7 +160,36 @@ export function HeroSection() {
                             <Linkedin className="h-5 w-5" />
                         </Link>
                         <Link
-                            href="/resume"
+                            href={personalInfo.social.twitter}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110 focus-ring"
+                            aria-label="X (Twitter)"
+                        >
+                            <XIcon className="h-4 w-4" />
+                        </Link>
+                        <Link
+                            href={personalInfo.social.facebook}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110 focus-ring"
+                            aria-label="Facebook"
+                        >
+                            <Facebook className="h-5 w-5" />
+                        </Link>
+                        <Link
+                            href={personalInfo.social.youtube}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110 focus-ring"
+                            aria-label="YouTube"
+                        >
+                            <Youtube className="h-5 w-5" />
+                        </Link>
+                        <Link
+                            href={personalInfo.resumeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110 focus-ring"
                             aria-label="Download Resume"
                         >

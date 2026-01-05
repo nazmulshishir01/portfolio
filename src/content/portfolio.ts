@@ -2,18 +2,21 @@
 // Update with your actual information
 
 export const personalInfo = {
-  name: "Alex Chen",
-  role: "Frontend Developer",
-  tagline: "Building exceptional digital experiences with React & Next.js",
-  bio: "I'm a passionate frontend developer with 5+ years of experience crafting beautiful, performant web applications. I specialize in React, Next.js, and TypeScript, with a keen eye for design and user experience.",
-  location: "San Francisco, CA",
-  email: "hello@alexchen.dev",
-  phone: "+1 (555) 123-4567",
-  availability: "Available for freelance projects",
+  name: "Md. Nazmul Islam",
+  role: "Full Stack Developer",
+  tagline: "Building scalable and user-centric web applications with the MERN stack",
+  bio: "I am a dedicated Full Stack Developer specialized in the MERN stack. My programming journey began with a curiosity for how things work on the web, which evolved into a passion for building robust applications. I enjoy solving complex problems and crafting seamless user experiences. When I'm not coding, I love exploring new technologies, reading tech blogs, and traveling.",
+  location: "Mirpur DOHS, Dhaka, Bangladesh",
+  email: "nazmulshishir28@gmail.com",
+  phone: "+880 1937921124",
+  availability: "Available for new opportunities",
+  resumeUrl: "https://drive.google.com/file/d/0B4vIMNelzwCYVVFFVUNaLUtXcFhJLTZ1R0NRUHJfUUxOLTFR/view?usp=sharing&resourcekey=0-_q7rilbddh_LUVbwl_m1Sg",
   social: {
-    github: "https://github.com/alexchen",
-    linkedin: "https://linkedin.com/in/alexchen",
-    twitter: "https://twitter.com/alexchen_dev",
+    github: "https://github.com/nazmulshishir01",
+    linkedin: "https://www.linkedin.com/in/nazmul-shishir",
+    twitter: "https://x.com/Nazmulshishir01",
+    facebook: "https://www.facebook.com/nazmulshishir.me",
+    youtube: "https://www.youtube.com/@nazmulshishir",
   },
 };
 
@@ -55,155 +58,98 @@ export type Project = {
   description: string;
   stack: string[];
   features: string[];
-  githubUrl?: string;
+  githubUrl?: string; // Client repository
   liveUrl?: string;
   images: string[];
   highlights?: string[];
   problem?: string;
   solution?: string;
   featured: boolean;
+  challenges?: string;
+  futurePlans?: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
-    slug: "ecommerce-platform",
-    tagline: "Modern shopping experience with real-time inventory",
+    title: "HomeHero",
+    slug: "homehero",
+    tagline: "Local Household Service Finder",
     description:
-      "A full-featured e-commerce platform built with Next.js and Stripe integration. Features include real-time inventory management, secure payments, and a responsive admin dashboard.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "MongoDB", "Prisma"],
+      "A modern web application that connects users with trusted local service providers. Browse services, book appointments, and leave ratings/reviews — while providers can manage their own services with full CRUD operations.",
+    stack: ["React", "Tailwind CSS", "Firebase", "Node.js", "Express.js", "MongoDB"],
     features: [
-      "Real-time inventory tracking",
-      "Secure Stripe payments",
-      "Admin dashboard",
-      "Order management",
-      "Product search & filtering",
-      "Responsive design",
+      "User Authentication (Firebase)",
+      "Service Discovery & Booking",
+      "Provider Service Management (CRUD)",
+      "Rating & Review System",
+      "Dark/Light Theme",
+      "Responsive UI",
     ],
-    githubUrl: "https://github.com/alexchen/ecommerce",
-    liveUrl: "https://ecommerce-demo.vercel.app",
-    images: ["/images/projects/ecommerce-1.jpg", "/images/projects/ecommerce-2.jpg"],
-    highlights: ["50k+ monthly users", "99.9% uptime", "4.8 star rating"],
+    githubUrl: "https://github.com/nazmulshishir01/homehero-client",
+    liveUrl: "https://homehero-bd.web.app",
+    images: ["/images/projects/homeherocover.png"],
+    highlights: ["Service Booking", "Role-based Dashboards", "Review System"],
     problem:
-      "Traditional e-commerce platforms are often slow, lack real-time updates, and provide poor mobile experiences.",
+      "Finding reliable household service providers locally is often difficult and lacks transparency.",
     solution:
-      "Built a modern, fast, and responsive e-commerce solution with Next.js SSR for optimal performance and SEO.",
+      "Built a centralized platform for discovering, comparing, and booking local services with user reviews.",
     featured: true,
+    challenges: "Ensuring secure role-based access for providers and users, and managing complex booking logic with date conflicts was a key challenge.",
+    futurePlans: "Implementing real-time chat between users and providers, and adding a payment gateway for upfront booking fees.",
   },
   {
-    title: "Task Management App",
-    slug: "task-management-app",
-    tagline: "Collaborative project management for modern teams",
+    title: "ScholarStream",
+    slug: "scholarstream",
+    tagline: "Scholarship Management Platform",
     description:
-      "A Trello-inspired task management application with real-time collaboration, drag-and-drop functionality, and team workspaces.",
-    stack: ["React", "TypeScript", "Firebase", "Tailwind CSS", "React DnD"],
+      "A comprehensive full-stack MERN application designed to connect students with scholarship opportunities worldwide. Universities can post scholarships while students can search, browse, and apply seamlessly.",
+    stack: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Stripe", "Firebase"],
     features: [
-      "Real-time collaboration",
-      "Drag-and-drop boards",
-      "Team workspaces",
-      "Task assignments",
-      "Due date tracking",
-      "Activity timeline",
+      "Role-Based Access Control",
+      "Scholarship Management",
+      "Stripe Payment Integration",
+      "Application Tracking",
+      "Advanced Search & Filtering",
+      "Admin Dashboard with Analytics",
     ],
-    githubUrl: "https://github.com/alexchen/taskflow",
-    liveUrl: "https://taskflow-demo.vercel.app",
-    images: ["/images/projects/taskflow-1.jpg"],
-    highlights: ["10k+ active users", "Real-time sync", "Offline support"],
+    githubUrl: "https://github.com/nazmulshishir01/scholarstream-client",
+    liveUrl: "https://scholarstream-project.web.app",
+    images: ["/images/projects/scholarstreamcover.png"],
+    highlights: ["MERN Stack", "Stripe Payments", "Role Management"],
     problem:
-      "Existing task management tools are either too complex or lack real-time collaboration features.",
+      "Students often struggle to find and apply for relevant scholarships in one centralized place.",
     solution:
-      "Created an intuitive, real-time collaborative workspace with Firebase for seamless team coordination.",
+      "Developed a robust platform connecting students with opportunities, featuring role-based workflows for seamless management.",
     featured: true,
+    challenges: "Designing a robust role-based access control (RBAC) system with different dashboards and permissions for Students, Moderators, and Admins.",
+    futurePlans: "Adding an AI-based recommendation engine to suggest scholarships based on student profiles and academic history.",
   },
   {
-    title: "AI Content Generator",
-    slug: "ai-content-generator",
-    tagline: "AI-powered content creation platform",
+    title: "SkillSwap",
+    slug: "skillswap",
+    tagline: "Local Skill Exchange Platform",
     description:
-      "An AI-powered content generation tool that uses OpenAI's GPT-4 to create blog posts, social media content, and marketing copy.",
-    stack: ["Next.js", "TypeScript", "OpenAI API", "PostgreSQL", "Stripe"],
+      "An interactive platform that allows individuals to offer, learn, and trade skills locally. Users can browse various skills, view details, book sessions, and connect with skill providers.",
+    stack: ["React", "Tailwind CSS", "Firebase", "AOS", "Swiper.js"],
     features: [
-      "Multiple content types",
-      "Custom templates",
-      "History & favorites",
-      "Credit-based billing",
-      "Export options",
-      "Team collaboration",
+      "Skill Listings & Details",
+      "Session Booking System",
+      "Secure Authentication",
+      "Profile Management",
+      "Interactive Animations",
+      "Toast Notifications",
     ],
-    githubUrl: "https://github.com/alexchen/ai-writer",
-    liveUrl: "https://ai-writer-demo.vercel.app",
-    images: ["/images/projects/ai-writer-1.jpg"],
-    highlights: ["GPT-4 powered", "5k+ content pieces generated", "SaaS model"],
-    problem: "Creating quality content is time-consuming and expensive for small businesses.",
+    githubUrl: "https://github.com/nazmulshishir01/skillswap",
+    liveUrl: "https://skillswap-4d128.web.app/",
+    images: ["/images/projects/skillswapcover.png"],
+    highlights: ["Skill Exchange", "Smooth Animations", "Booking System"],
+    problem:
+      "People want to learn new skills or offer their expertise but lack a dedicated local platform to connect.",
     solution:
-      "Developed an AI-powered tool that generates high-quality content in seconds at a fraction of the cost.",
+      "Created an easy-to-use platform for listing and booking skill sessions with a focus on user experience and interactivity.",
     featured: true,
-  },
-  {
-    title: "Real Estate Listings",
-    slug: "real-estate-listings",
-    tagline: "Beautiful property search experience",
-    description:
-      "A modern real estate platform with advanced search filters, interactive maps, and virtual tour integration.",
-    stack: ["Next.js", "TypeScript", "Mapbox", "Prisma", "PostgreSQL"],
-    features: [
-      "Advanced search filters",
-      "Interactive maps",
-      "Virtual tours",
-      "Saved searches",
-      "Agent contact forms",
-      "Property comparisons",
-    ],
-    githubUrl: "https://github.com/alexchen/realestate",
-    images: ["/images/projects/realestate-1.jpg"],
-    problem: "Traditional real estate websites offer poor user experience and outdated interfaces.",
-    solution:
-      "Built a modern, fast property search platform with interactive maps and immersive virtual tours.",
-    featured: false,
-  },
-  {
-    title: "Fitness Tracker",
-    slug: "fitness-tracker",
-    tagline: "Track your fitness journey",
-    description:
-      "A comprehensive fitness tracking app with workout logging, progress charts, and goal setting features.",
-    stack: ["React Native", "TypeScript", "Firebase", "Chart.js"],
-    features: [
-      "Workout logging",
-      "Progress charts",
-      "Goal setting",
-      "Exercise library",
-      "Calendar view",
-      "Social sharing",
-    ],
-    githubUrl: "https://github.com/alexchen/fittrack",
-    images: ["/images/projects/fittrack-1.jpg"],
-    problem: "Most fitness apps are bloated with features users don't need and have poor UX.",
-    solution: "Created a focused, intuitive fitness tracker that prioritizes the features that matter most.",
-    featured: false,
-  },
-  {
-    title: "Portfolio Template",
-    slug: "portfolio-template",
-    tagline: "Modern developer portfolio starter",
-    description:
-      "An open-source portfolio template for developers featuring dark mode, animations, and easy customization.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    features: [
-      "Dark/light mode",
-      "Smooth animations",
-      "SEO optimized",
-      "Easy customization",
-      "Contact form",
-      "Blog support",
-    ],
-    githubUrl: "https://github.com/alexchen/portfolio-template",
-    liveUrl: "https://portfolio-starter.vercel.app",
-    images: ["/images/projects/portfolio-1.jpg"],
-    highlights: ["500+ GitHub stars", "Open source", "MIT licensed"],
-    problem: "Developer portfolios often look generic and lack the polish to stand out.",
-    solution: "Built a premium-feeling portfolio template with modern animations and easy content management.",
-    featured: true,
+    challenges: "Creating a smooth and responsive UI with complex animations using AOS and Swiper while maintaining high performance across devices.",
+    futurePlans: "Introducing a virtual currency system for skill trading and adding video call integration for remote learning sessions.",
   },
 ];
 
@@ -218,39 +164,30 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
-    title: "Senior Frontend Developer",
-    company: "TechCorp Inc.",
-    location: "San Francisco, CA",
-    period: "2022 - Present",
+    title: "Junior Web Developer",
+    company: "Upstal Limited",
+    location: "Dhaka, Bangladesh",
+    period: "2023 - Continue",
     description:
-      "Leading frontend development for enterprise SaaS products. Architecting scalable React applications and mentoring junior developers.",
+      "Assisted in the development of corporate websites and internal tools. Collaborated with senior developers to implement responsive designs and fix bugs.",
     type: "work",
   },
   {
-    title: "Frontend Developer",
-    company: "StartupXYZ",
-    location: "Remote",
-    period: "2020 - 2022",
-    description:
-      "Built and maintained multiple React applications. Implemented design systems and improved performance by 40%.",
-    type: "work",
-  },
-  {
-    title: "Junior Developer",
-    company: "WebAgency",
-    location: "Los Angeles, CA",
-    period: "2018 - 2020",
-    description:
-      "Developed responsive websites and web applications for various clients. Gained expertise in modern JavaScript frameworks.",
-    type: "work",
-  },
-  {
-    title: "B.S. Computer Science",
-    company: "University of California",
-    location: "Berkeley, CA",
+    title: "B.Sc in Computer Science",
+    company: "Daffodil International University",
+    location: "Dhaka, Bangladesh",
     period: "2014 - 2018",
     description:
-      "Graduated with honors. Focused on web technologies and software engineering principles.",
+      "Completed degree with strong focus on software engineering, data structures, and algorithms. Active member of the university computer club.",
+    type: "education",
+  },
+  {
+    title: "Higher Secondary Certificate",
+    company: "Adamjee Cantonment College",
+    location: "Dhaka, Bangladesh",
+    period: "2011- 2012",
+    description:
+      "Passed with GPA 5.00. Science group background with interest in mathematics and physics.",
     type: "education",
   },
 ];

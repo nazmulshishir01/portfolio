@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github, Calendar, MapPin } from "lucide-react";
@@ -105,12 +106,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
                 {/* Project image placeholder */}
                 <Reveal delay={0.1}>
-                    <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 via-chart-4/20 to-chart-1/20 mb-12">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-8xl font-bold text-primary/20">
-                                {project.title.charAt(0)}
-                            </span>
-                        </div>
+                    <div className="relative aspect-video rounded-2xl overflow-hidden bg-muted border border-border/50 mb-12 group">
+                        <Image
+                            src={project.images[0]}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            priority
+                        />
                     </div>
                 </Reveal>
 
@@ -146,6 +149,30 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                     <h2 className="heading-sm mb-4">The Solution</h2>
                                     <p className="text-muted-foreground leading-relaxed">
                                         {project.solution}
+                                    </p>
+                                </section>
+                            </Reveal>
+                        )}
+
+                        {/* Challenges */}
+                        {project.challenges && (
+                            <Reveal>
+                                <section>
+                                    <h2 className="heading-sm mb-4">Challenges Faced</h2>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {project.challenges}
+                                    </p>
+                                </section>
+                            </Reveal>
+                        )}
+
+                        {/* Future Plans */}
+                        {project.futurePlans && (
+                            <Reveal>
+                                <section>
+                                    <h2 className="heading-sm mb-4">Future Plans</h2>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {project.futurePlans}
                                     </p>
                                 </section>
                             </Reveal>

@@ -7,7 +7,7 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
 import { MobileNav } from "./mobile-nav";
-import { personalInfo, navLinks } from "@/content/portfolio";
+import { navLinks } from "@/content/portfolio";
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = React.useState(false);
@@ -29,26 +29,15 @@ export function Navbar() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                        ? "glass py-3"
-                        : "bg-transparent py-4"
+                    ? "glass py-3"
+                    : "bg-transparent py-4"
                     }`}
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
                     <nav className="flex items-center justify-between">
-                        {/* Logo */}
-                        <Link href="/" className="group flex items-center gap-2">
-                            <motion.div
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="relative"
-                            >
-                                <span className="text-xl font-bold tracking-tight">
-                                    <span className="gradient-text">{personalInfo.name.split(" ")[0]}</span>
-                                    <span className="text-muted-foreground font-light">
-                                        .dev
-                                    </span>
-                                </span>
-                            </motion.div>
+                        {/* Website Name */}
+                        <Link href="/" className="block">
+                            <span className="text-xl font-bold gradient-text">Nazmul Portfolio</span>
                         </Link>
 
                         {/* Desktop navigation */}

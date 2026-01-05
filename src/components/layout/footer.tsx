@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, Facebook, Youtube } from "lucide-react";
 import { personalInfo } from "@/content/portfolio";
+import { XIcon } from "@/components/shared/icons";
 
 const socialLinks = [
     {
@@ -14,9 +15,19 @@ const socialLinks = [
         icon: Linkedin,
     },
     {
-        name: "Twitter",
+        name: "X",
         href: personalInfo.social.twitter,
-        icon: Twitter,
+        icon: XIcon,
+    },
+    {
+        name: "Facebook",
+        href: personalInfo.social.facebook,
+        icon: Facebook,
+    },
+    {
+        name: "YouTube",
+        href: personalInfo.social.youtube,
+        icon: Youtube,
     },
     {
         name: "Email",
@@ -36,8 +47,7 @@ export function Footer() {
                     <div className="text-center md:text-left">
                         <Link href="/" className="inline-block">
                             <span className="text-xl font-bold tracking-tight">
-                                <span className="gradient-text">{personalInfo.name.split(" ")[0]}</span>
-                                <span className="text-muted-foreground font-light">.dev</span>
+                                <span className="gradient-text">Nazmul Portfolio</span>
                             </span>
                         </Link>
                         <p className="mt-2 text-sm text-muted-foreground max-w-xs">
@@ -71,7 +81,9 @@ export function Footer() {
                         </p>
                         <div className="flex items-center gap-4">
                             <Link
-                                href="/resume"
+                                href={personalInfo.resumeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="hover:text-foreground transition-colors focus-ring rounded"
                             >
                                 Resume

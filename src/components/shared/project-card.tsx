@@ -29,14 +29,24 @@ export function ProjectCard({ project, className, index = 0 }: ProjectCardProps)
                     className
                 )}
             >
-                {/* Image placeholder */}
+                {/* Project image or placeholder */}
                 <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 via-chart-4/20 to-chart-1/20">
-                    <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-4xl font-bold text-primary/30">
-                            {project.title.charAt(0)}
-                        </span>
-                    </div>
+                    {project.images && project.images[0] ? (
+                        <img
+                            src={project.images[0]}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <>
+                            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-4xl font-bold text-primary/30">
+                                    {project.title.charAt(0)}
+                                </span>
+                            </div>
+                        </>
+                    )}
 
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">

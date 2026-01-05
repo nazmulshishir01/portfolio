@@ -26,7 +26,7 @@ export default function ResumePage() {
                             A summary of my professional experience, skills, and education.
                         </p>
                         <Button asChild size="lg">
-                            <Link href="/resume.pdf" target="_blank" download>
+                            <Link href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer">
                                 <Download className="mr-2 h-4 w-4" />
                                 Download PDF
                             </Link>
