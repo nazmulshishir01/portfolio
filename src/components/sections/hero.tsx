@@ -105,11 +105,13 @@ export function HeroSection() {
                                 <motion.span
                                     key={index}
                                     initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    animate={{ opacity: [0, 1, 1, 0], y: [10, 0, 0, 10] }}
                                     transition={{
-                                        duration: 0.5,
-                                        delay: 0.5 + index * 0.05,
-                                        ease: "easeOut",
+                                        duration: 4,
+                                        times: [0, 0.2, 0.8, 1],
+                                        repeat: Infinity,
+                                        delay: index * 0.1,
+                                        ease: "easeInOut",
                                     }}
                                     className="inline-block gradient-text"
                                 >
