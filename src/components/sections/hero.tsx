@@ -88,12 +88,34 @@ export function HeroSection() {
                     {/* Profile Photo */}
                     <motion.div
                         variants={itemVariants}
-                        className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl"
+                        className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8"
                     >
-                        <img
-                            src="/images/projects/profileimage.png"
-                            alt={personalInfo.name}
-                            className="w-full h-full object-cover"
+                        <motion.div
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                            className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary/20 shadow-[0_0_30px_-5px_var(--primary)]"
+                        >
+                            <img
+                                src="/images/projects/profileimage.png"
+                                alt={personalInfo.name}
+                                className="w-full h-full object-cover"
+                            />
+                            {/* Inner glow ring */}
+                            <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/20" />
+                        </motion.div>
+                        {/* Outer animated glow */}
+                        <motion.div
+                            animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.2, 0.5] }}
+                            transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                            className="absolute -inset-4 rounded-full bg-primary/20 -z-10 blur-xl"
                         />
                     </motion.div>
 
