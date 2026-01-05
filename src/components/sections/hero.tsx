@@ -100,7 +100,23 @@ export function HeroSection() {
                     {/* Main heading */}
                     <motion.h1 variants={itemVariants} className="heading-xl mb-6">
                         Hi, I'm{" "}
-                        <span className="gradient-text">{personalInfo.name}</span>
+                        <span className="inline-block">
+                            {personalInfo.name.split("").map((char, index) => (
+                                <motion.span
+                                    key={index}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 0.5,
+                                        delay: 0.5 + index * 0.05,
+                                        ease: "easeOut",
+                                    }}
+                                    className="inline-block gradient-text"
+                                >
+                                    {char === " " ? "\u00A0" : char}
+                                </motion.span>
+                            ))}
+                        </span>
                     </motion.h1>
 
                     {/* Role */}
