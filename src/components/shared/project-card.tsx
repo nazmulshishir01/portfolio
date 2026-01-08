@@ -49,7 +49,7 @@ export function ProjectCard({ project, className, index = 0 }: ProjectCardProps)
                         </>
                     )}
 
-                    {/* Hover overlay - hidden on touch devices, shown on tap */}
+                    
                     <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 sm:gap-4">
                         {project.liveUrl && (
                             <Button asChild size="sm" variant="secondary" className="h-8 sm:h-9 px-2 sm:px-3 text-xs sm:text-sm">
@@ -107,7 +107,7 @@ export function ProjectCard({ project, className, index = 0 }: ProjectCardProps)
                     )}
                 </CardFooter>
 
-                {/* View details link overlay */}
+                
                 <Link
                     href={`/projects/${project.slug}`}
                     className="absolute inset-0 z-10"
