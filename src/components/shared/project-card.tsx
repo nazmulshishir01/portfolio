@@ -30,38 +30,39 @@ export function ProjectCard({ project, className, index = 0 }: ProjectCardProps)
                 )}
             >
                 {/* Project image or placeholder */}
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 via-chart-4/20 to-chart-1/20">
+                <div className="relative h-40 sm:h-44 md:h-48 overflow-hidden bg-gradient-to-br from-primary/20 via-chart-4/20 to-chart-1/20">
                     {project.images && project.images[0] ? (
                         <img
                             src={project.images[0]}
                             alt={project.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            loading="lazy"
                         />
                     ) : (
                         <>
                             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-4xl font-bold text-primary/30">
+                                <span className="text-3xl sm:text-4xl font-bold text-primary/30">
                                     {project.title.charAt(0)}
                                 </span>
                             </div>
                         </>
                     )}
 
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                    {/* Hover overlay - hidden on touch devices, shown on tap */}
+                    <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 sm:gap-4">
                         {project.liveUrl && (
-                            <Button asChild size="sm" variant="secondary">
+                            <Button asChild size="sm" variant="secondary" className="h-8 sm:h-9 px-2 sm:px-3 text-xs sm:text-sm">
                                 <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                    <ExternalLink className="h-4 w-4 mr-1" />
+                                    <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                                     Live
                                 </Link>
                             </Button>
                         )}
                         {project.githubUrl && (
-                            <Button asChild size="sm" variant="outline">
+                            <Button asChild size="sm" variant="outline" className="h-8 sm:h-9 px-2 sm:px-3 text-xs sm:text-sm">
                                 <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                    <Github className="h-4 w-4 mr-1" />
+                                    <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                                     Code
                                 </Link>
                             </Button>
@@ -69,39 +70,39 @@ export function ProjectCard({ project, className, index = 0 }: ProjectCardProps)
                     </div>
                 </div>
 
-                <CardHeader className="pb-2">
+                <CardHeader className="pb-2 px-3 sm:px-4 md:px-6 pt-3 sm:pt-4">
                     <div className="flex items-start justify-between gap-2">
-                        <div>
-                            <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+                        <div className="min-w-0 flex-1">
+                            <h3 className="font-semibold text-base sm:text-lg group-hover:text-primary transition-colors truncate">
                                 {project.title}
                             </h3>
-                            <p className="text-sm text-muted-foreground">{project.tagline}</p>
+                            <p className="text-xs sm:text-sm text-muted-foreground truncate">{project.tagline}</p>
                         </div>
                         <Link
                             href={`/projects/${project.slug}`}
-                            className="p-2 rounded-full hover:bg-accent transition-colors opacity-0 group-hover:opacity-100"
+                            className="p-1.5 sm:p-2 rounded-full hover:bg-accent transition-colors opacity-0 group-hover:opacity-100 shrink-0"
                             aria-label={`View ${project.title} details`}
                         >
-                            <ArrowUpRight className="h-4 w-4" />
+                            <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Link>
                     </div>
                 </CardHeader>
 
-                <CardContent className="pb-4">
-                    <p className="text-sm text-muted-foreground line-clamp-2">
+                <CardContent className="pb-3 sm:pb-4 px-3 sm:px-4 md:px-6">
+                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">
                         {project.description}
                     </p>
                 </CardContent>
 
-                <CardFooter className="pt-0 flex-wrap gap-2">
-                    {project.stack.slice(0, 4).map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
+                <CardFooter className="pt-0 px-3 sm:px-4 md:px-6 pb-3 sm:pb-4 flex-wrap gap-1.5 sm:gap-2">
+                    {project.stack.slice(0, 3).map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5">
                             {tech}
                         </Badge>
                     ))}
-                    {project.stack.length > 4 && (
-                        <Badge variant="outline" className="text-xs">
-                            +{project.stack.length - 4}
+                    {project.stack.length > 3 && (
+                        <Badge variant="outline" className="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5">
+                            +{project.stack.length - 3}
                         </Badge>
                     )}
                 </CardFooter>

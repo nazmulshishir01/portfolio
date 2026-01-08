@@ -33,82 +33,86 @@ const menuItemVariants = {
 export function MobileNav({ open, onOpenChange }: MobileNavProps) {
     return (
         <Sheet open={open} onOpenChange={onOpenChange}>
-            <SheetContent side="left" className="w-full sm:max-w-sm border-border/50">
-                <SheetHeader className="text-left">
-                    <SheetTitle>
-                        <span className="gradient-text">{personalInfo.name.split(" ")[0]}</span>
-                        <span className="text-muted-foreground font-light">.dev</span>
-                    </SheetTitle>
-                </SheetHeader>
+            <SheetContent side="left" className="w-[85vw] max-w-sm sm:max-w-sm border-border/50 p-0">
+                <div className="flex flex-col h-full">
+                    <SheetHeader className="text-left p-4 sm:p-6 border-b border-border/50">
+                        <SheetTitle className="text-lg sm:text-xl">
+                            <span className="gradient-text">{personalInfo.name.split(" ")[0]}</span>
+                            <span className="text-muted-foreground font-light">.dev</span>
+                        </SheetTitle>
+                    </SheetHeader>
 
-                <nav className="mt-8 flex flex-col gap-2">
-                    <AnimatePresence>
-                        {open &&
-                            navLinks.map((link, i) => (
+                    <nav className="flex-1 overflow-y-auto p-4 sm:p-6">
+                        <div className="flex flex-col gap-1 sm:gap-2">
+                            <AnimatePresence>
+                                {open &&
+                                    navLinks.map((link, i) => (
+                                        <motion.div
+                                            key={link.href}
+                                            custom={i}
+                                            initial="closed"
+                                            animate="open"
+                                            variants={menuItemVariants}
+                                        >
+                                            <Link
+                                                href={link.href}
+                                                onClick={() => onOpenChange(false)}
+                                                className="flex items-center py-3 sm:py-4 px-3 sm:px-4 text-base sm:text-lg md:text-xl font-medium text-foreground hover:text-primary hover:bg-accent rounded-lg transition-colors focus-ring"
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        </motion.div>
+                                    ))}
+
                                 <motion.div
-                                    key={link.href}
-                                    custom={i}
+                                    custom={navLinks.length}
                                     initial="closed"
                                     animate="open"
                                     variants={menuItemVariants}
                                 >
                                     <Link
-                                        href={link.href}
+                                        href="/projects"
                                         onClick={() => onOpenChange(false)}
-                                        className="flex items-center py-3 px-4 text-lg font-medium text-foreground hover:text-primary hover:bg-accent rounded-lg transition-colors focus-ring"
+                                        className="flex items-center py-3 sm:py-4 px-3 sm:px-4 text-base sm:text-lg font-medium text-foreground hover:text-primary hover:bg-accent rounded-lg transition-colors focus-ring"
                                     >
-                                        {link.label}
+                                        All Projects
                                     </Link>
                                 </motion.div>
-                            ))}
 
-                        <motion.div
-                            custom={navLinks.length}
-                            initial="closed"
-                            animate="open"
-                            variants={menuItemVariants}
-                        >
-                            <Link
-                                href="/projects"
-                                onClick={() => onOpenChange(false)}
-                                className="flex items-center py-3 px-4 text-lg font-medium text-foreground hover:text-primary hover:bg-accent rounded-lg transition-colors focus-ring"
-                            >
-                                All Projects
+                                <motion.div
+                                    custom={navLinks.length + 1}
+                                    initial="closed"
+                                    animate="open"
+                                    variants={menuItemVariants}
+                                >
+                                    <Link
+                                        href="/resume"
+                                        onClick={() => onOpenChange(false)}
+                                        className="flex items-center py-3 sm:py-4 px-3 sm:px-4 text-base sm:text-lg font-medium text-foreground hover:text-primary hover:bg-accent rounded-lg transition-colors focus-ring"
+                                    >
+                                        Resume
+                                    </Link>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    </nav>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.3 }}
+                        className="p-4 sm:p-6 border-t border-border/50 mt-auto"
+                    >
+                        <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
+                            {personalInfo.availability}
+                        </p>
+                        <Button asChild className="w-full h-10 sm:h-11 text-sm sm:text-base">
+                            <Link href="#contact" onClick={() => onOpenChange(false)}>
+                                Get in Touch
                             </Link>
-                        </motion.div>
-
-                        <motion.div
-                            custom={navLinks.length + 1}
-                            initial="closed"
-                            animate="open"
-                            variants={menuItemVariants}
-                        >
-                            <Link
-                                href="/resume"
-                                onClick={() => onOpenChange(false)}
-                                className="flex items-center py-3 px-4 text-lg font-medium text-foreground hover:text-primary hover:bg-accent rounded-lg transition-colors focus-ring"
-                            >
-                                Resume
-                            </Link>
-                        </motion.div>
-                    </AnimatePresence>
-                </nav>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.3 }}
-                    className="absolute bottom-8 left-6 right-6"
-                >
-                    <p className="text-sm text-muted-foreground mb-4">
-                        {personalInfo.availability}
-                    </p>
-                    <Button asChild className="w-full">
-                        <Link href="#contact" onClick={() => onOpenChange(false)}>
-                            Get in Touch
-                        </Link>
-                    </Button>
-                </motion.div>
+                        </Button>
+                    </motion.div>
+                </div>
             </SheetContent>
         </Sheet>
     );

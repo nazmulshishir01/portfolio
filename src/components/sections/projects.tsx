@@ -19,15 +19,15 @@ export function ProjectsSection() {
                 subtitle="A selection of my recent work and side projects"
             />
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
                 {featuredProjects.map((project, index) => (
                     <ProjectCard key={project.slug} project={project} index={index} />
                 ))}
             </div>
 
             <Reveal delay={0.3}>
-                <div className="mt-12 text-center">
-                    <Button asChild variant="outline" size="lg" className="group">
+                <div className="mt-8 sm:mt-10 md:mt-12 text-center">
+                    <Button asChild variant="outline" size="lg" className="group w-full sm:w-auto">
                         <Link href="/projects">
                             View All Projects
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -21,13 +21,13 @@ export function SkillBadge({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className={cn(
-                "relative px-4 py-2 rounded-lg bg-card border border-border/50 cursor-default transition-colors hover:border-primary/50 hover:bg-accent/50",
+                "relative px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md sm:rounded-lg bg-card border border-border/50 cursor-default transition-colors hover:border-primary/50 hover:bg-accent/50",
                 className
             )}
         >
-            <span className="text-sm font-medium">{name}</span>
+            <span className="text-xs sm:text-sm font-medium">{name}</span>
             {showLevel && level && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-muted overflow-hidden rounded-b-lg">
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-muted overflow-hidden rounded-b-md sm:rounded-b-lg">
                     <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${level}%` }}

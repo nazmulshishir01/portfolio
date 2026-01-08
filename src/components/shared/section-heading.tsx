@@ -17,7 +17,7 @@ export function SectionHeading({
     return (
         <div
             className={cn(
-                "mb-12 md:mb-16",
+                "mb-8 sm:mb-10 md:mb-12 lg:mb-16",
                 align === "center" && "text-center",
                 className
             )}
@@ -29,7 +29,7 @@ export function SectionHeading({
             </Reveal>
             {subtitle && (
                 <Reveal delay={0.1}>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                    <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-muted-foreground max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto px-2 sm:px-0">
                         {subtitle}
                     </p>
                 </Reveal>

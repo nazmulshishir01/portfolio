@@ -13,7 +13,7 @@ export function TimelineSection() {
                 subtitle="My professional journey and academic background"
             />
 
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto">
                 {timeline.map((item, index) => (
                     <TimelineItem
                         key={`${item.company}-${item.period}`}

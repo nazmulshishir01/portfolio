@@ -44,14 +44,14 @@ export function ServiceCard({ service, index, className }: ServiceCardProps) {
                     className
                 )}
             >
-                <CardHeader>
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                        <Icon className="h-6 w-6 text-primary" />
+                <CardHeader className="pb-2 sm:pb-3 p-4 sm:p-5 md:p-6">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary/20 transition-colors">
+                        <Icon className="h-5 w-5 sm:h-5.5 sm:w-5.5 md:h-6 md:w-6 text-primary" />
                     </div>
-                    <CardTitle className="text-lg">{service.title}</CardTitle>
+                    <CardTitle className="text-base sm:text-lg">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-muted-foreground">
+                <CardContent className="p-4 sm:p-5 md:p-6 pt-0">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                         {service.description}
                     </p>
                 </CardContent>

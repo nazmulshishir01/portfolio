@@ -20,6 +20,13 @@ export const personalInfo = {
   },
 };
 
+export const stats = [
+  { label: "Years Experience", value: "3+" },
+  { label: "Projects Completed", value: "15+" },
+  { label: "Happy Clients", value: "8+" },
+  { label: "Lines of Code", value: "15k+" },
+];
+
 export const skills = {
   frontend: [
     { name: "React", level: 95 },

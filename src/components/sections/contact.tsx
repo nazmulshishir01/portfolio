@@ -80,34 +80,34 @@ export function ContactSection() {
                 subtitle="Have a project in mind? Let's talk about it."
             />
 
-            <div className="grid lg:grid-cols-5 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12">
                 {/* Contact info */}
-                <div className="lg:col-span-2 space-y-8">
+                <div className="lg:col-span-2 space-y-6 sm:space-y-8">
                     <Reveal direction="left">
-                        <p className="text-muted-foreground">
+                        <p className="text-sm sm:text-base text-muted-foreground">
                             I'm always interested in hearing about new projects and opportunities.
                             Whether you have a question or just want to say hi, feel free to reach out!
                         </p>
                     </Reveal>
 
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                         {contactInfo.map((item, index) => (
                             <Reveal key={item.label} direction="left" delay={0.1 * (index + 1)}>
-                                <div className="flex items-center gap-4 p-4 rounded-xl bg-card/50 border border-border/50">
-                                    <div className="p-3 rounded-lg bg-primary/10">
-                                        <item.icon className="h-5 w-5 text-primary" />
+                                <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-card/50 border border-border/50">
+                                    <div className="p-2 sm:p-3 rounded-md sm:rounded-lg bg-primary/10 shrink-0">
+                                        <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                                     </div>
-                                    <div>
-                                        <p className="text-sm text-muted-foreground">{item.label}</p>
+                                    <div className="min-w-0 flex-1">
+                                        <p className="text-xs sm:text-sm text-muted-foreground">{item.label}</p>
                                         {item.href ? (
                                             <a
                                                 href={item.href}
-                                                className="font-medium hover:text-primary transition-colors"
+                                                className="text-sm sm:text-base font-medium hover:text-primary transition-colors truncate block"
                                             >
                                                 {item.value}
                                             </a>
                                         ) : (
-                                            <p className="font-medium">{item.value}</p>
+                                            <p className="text-sm sm:text-base font-medium truncate">{item.value}</p>
                                         )}
                                     </div>
                                 </div>
@@ -120,72 +120,72 @@ export function ContactSection() {
                 <Reveal direction="right" className="lg:col-span-3">
                     <form
                         onSubmit={handleSubmit(onSubmit)}
-                        className="p-6 sm:p-8 rounded-2xl bg-card/50 border border-border/50"
+                        className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-card/50 border border-border/50"
                     >
-                        <div className="grid sm:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <Label htmlFor="name">Name</Label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                            <div className="space-y-1.5 sm:space-y-2">
+                                <Label htmlFor="name" className="text-sm">Name</Label>
                                 <Input
                                     id="name"
                                     placeholder="Your name"
                                     {...register("name")}
                                     aria-invalid={errors.name ? "true" : "false"}
-                                    className={errors.name ? "border-destructive" : ""}
+                                    className={`h-10 sm:h-11 text-sm sm:text-base ${errors.name ? "border-destructive" : ""}`}
                                 />
                                 {errors.name && (
-                                    <p className="text-sm text-destructive">{errors.name.message}</p>
+                                    <p className="text-xs sm:text-sm text-destructive">{errors.name.message}</p>
                                 )}
                             </div>
 
-                            <div className="space-y-2">
-                                <Label htmlFor="email">Email</Label>
+                            <div className="space-y-1.5 sm:space-y-2">
+                                <Label htmlFor="email" className="text-sm">Email</Label>
                                 <Input
                                     id="email"
                                     type="email"
                                     placeholder="your@email.com"
                                     {...register("email")}
                                     aria-invalid={errors.email ? "true" : "false"}
-                                    className={errors.email ? "border-destructive" : ""}
+                                    className={`h-10 sm:h-11 text-sm sm:text-base ${errors.email ? "border-destructive" : ""}`}
                                 />
                                 {errors.email && (
-                                    <p className="text-sm text-destructive">{errors.email.message}</p>
+                                    <p className="text-xs sm:text-sm text-destructive">{errors.email.message}</p>
                                 )}
                             </div>
                         </div>
 
-                        <div className="mt-6 space-y-2">
-                            <Label htmlFor="subject">Subject</Label>
+                        <div className="mt-4 sm:mt-6 space-y-1.5 sm:space-y-2">
+                            <Label htmlFor="subject" className="text-sm">Subject</Label>
                             <Input
                                 id="subject"
                                 placeholder="What's this about?"
                                 {...register("subject")}
                                 aria-invalid={errors.subject ? "true" : "false"}
-                                className={errors.subject ? "border-destructive" : ""}
+                                className={`h-10 sm:h-11 text-sm sm:text-base ${errors.subject ? "border-destructive" : ""}`}
                             />
                             {errors.subject && (
-                                <p className="text-sm text-destructive">{errors.subject.message}</p>
+                                <p className="text-xs sm:text-sm text-destructive">{errors.subject.message}</p>
                             )}
                         </div>
 
-                        <div className="mt-6 space-y-2">
-                            <Label htmlFor="message">Message</Label>
+                        <div className="mt-4 sm:mt-6 space-y-1.5 sm:space-y-2">
+                            <Label htmlFor="message" className="text-sm">Message</Label>
                             <Textarea
                                 id="message"
                                 placeholder="Tell me about your project..."
-                                rows={5}
+                                rows={4}
                                 {...register("message")}
                                 aria-invalid={errors.message ? "true" : "false"}
-                                className={errors.message ? "border-destructive" : ""}
+                                className={`text-sm sm:text-base resize-none ${errors.message ? "border-destructive" : ""}`}
                             />
                             {errors.message && (
-                                <p className="text-sm text-destructive">{errors.message.message}</p>
+                                <p className="text-xs sm:text-sm text-destructive">{errors.message.message}</p>
                             )}
                         </div>
 
                         <Button
                             type="submit"
                             size="lg"
-                            className="mt-8 w-full sm:w-auto"
+                            className="mt-6 sm:mt-8 w-full sm:w-auto h-10 sm:h-11 text-sm sm:text-base"
                             disabled={isSubmitting}
                         >
                             {isSubmitting ? (

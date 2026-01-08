@@ -29,45 +29,47 @@ export function Navbar() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? "glass py-3"
-                    : "bg-transparent py-4"
+                    ? "glass py-2 sm:py-3"
+                    : "bg-transparent py-3 sm:py-4"
                     }`}
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-                    <nav className="flex items-center justify-between">
+                    <nav className="flex items-center justify-between gap-2">
                         {/* Website Name */}
-                        <Link href="/" className="block">
-                            <span className="text-xl font-bold gradient-text">Nazmul Portfolio</span>
+                        <Link href="/" className="block shrink-0">
+                            <span className="text-base sm:text-lg md:text-xl font-bold gradient-text">
+                                Nazmul Portfolio
+                            </span>
                         </Link>
 
                         {/* Desktop navigation */}
-                        <div className="hidden md:flex items-center gap-1">
+                        <div className="hidden lg:flex items-center gap-0.5 xl:gap-1">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors focus-ring rounded-md"
+                                    className="px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors focus-ring rounded-md whitespace-nowrap"
                                 >
                                     {link.label}
                                 </Link>
                             ))}
                             <Link
                                 href="/projects"
-                                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors focus-ring rounded-md"
+                                className="px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors focus-ring rounded-md whitespace-nowrap"
                             >
                                 All Projects
                             </Link>
                         </div>
 
                         {/* Actions */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1 sm:gap-2">
                             <ThemeToggle />
 
                             {/* Mobile menu button */}
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="md:hidden focus-ring"
+                                className="lg:hidden focus-ring h-9 w-9 sm:h-10 sm:w-10"
                                 onClick={() => setMobileMenuOpen(true)}
                             >
                                 <Menu className="h-5 w-5" />

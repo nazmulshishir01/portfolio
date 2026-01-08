@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "sonner";
 import { personalInfo } from "@/content/portfolio";
+import { BackToTop } from "@/components/shared/back-to-top";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -85,6 +86,9 @@ export default function RootLayout({
             closeButton
             theme="system"
           />
+
+          {/* Back to top button */}
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>
